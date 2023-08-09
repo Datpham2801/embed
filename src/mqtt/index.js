@@ -26,20 +26,19 @@ function handleSmartHouseConnected(message) {
 async function handleSmartHouseTemperature(message) {
   try {
     let data = await Temperature.find();
-    console.log(data);
-    let d = data[data.length - 1];
+    // console.log(data);
+    // let d = data[data.length - 1];
     const buff = message;
-    console.log(JSON.parse(message.toString()));
+    // console.log(JSON.parse(message.toString()));
     // console.log(Number(JSON.parse(message.toString())));
     let temperatureState = JSON.parse(message.toString());
-    if (
-      d.temperature != temperatureState.temperature ||
-      d.humidity != temperatureState.humidity
-    ) {
-      temperatureState.date = Date.now();
-      const res = await Temperature.create(temperatureState);
-      console.log({ status: true });
-    }
+    // if (
+    //   d.temperature != temperatureState.temperature ||
+    //   d.humidity != temperatureState.humidity
+    // ) {}
+    temperatureState.date = Date.now();
+    const res = await Temperature.create(temperatureState);
+    console.log({ status: true });
   } catch (error) {
     console.log({ status: false });
   }
