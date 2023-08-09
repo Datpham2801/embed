@@ -36,6 +36,7 @@ async function handleSmartHouseTemperature(message) {
       d.temperature != temperatureState.temperature ||
       d.humidity != temperatureState.humidity
     ) {
+      temperatureState.date = Date.now();
       const res = await Temperature.create(temperatureState);
       console.log({ status: true });
     }

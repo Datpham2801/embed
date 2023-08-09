@@ -10,6 +10,10 @@ const temparatureShema = new Schema({
     type: String,
     require: true,
   },
+  date: {
+    type: Date,
+    require: true,
+  },
 });
 temparatureShema.plugin(mongoosePaginate);
 module.exports = mongoose.model("temperature", temparatureShema);
